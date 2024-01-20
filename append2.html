@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script/jquery-3.7.1.js"></script>
+    <script lang="java">
+        $(function(){
+            var n=1; //animal01
+
+            $(".app").click(function(){
+                // a_img();
+                $(".gallery").append(a_img())
+                
+            }) //click app
+
+            $(".b_app").click(function(){
+                $(".box").append(a_img())
+            })// click b_app
+            
+            function a_img(){
+                
+                var path = '<img src="img/animal0'+n+'.png" alt="animal01">'
+
+                // 텍스트는 ""나 ''가 없기에 상관없지만 
+                //img는 속성이 여러개라 ""나 ''가 여러개 들어가는데
+                //""나 ''는 순서대로 열고 닫고로 인식하기 때문에 ""과 '' 고려해서 입력하기
+                //이렇게 하면 복잡하고 길어지기에 별도의 함수를 만들어주면 
+                //여기저기에 활용헐 수 있음
+                // <"모듈"이라고 부름-독립체로도도 사용 가능하고 다른 것과도 연결해서 사용가능>
+                
+                if(n < 9){
+                    n++; 
+                } else{
+                    n=1;
+                } //if
+
+                console.log("N : " , n)
+
+                console.log("PATH : " , path)
+
+                return path;
+            } //function a_img
+
+        }) //jquery
+    </script>
+
+    <style type="text/css">
+        .box{
+            border: 2px slateblue solid;
+        }
+        img{
+            width: 200px;
+        }
+        .app{
+            padding: 10px 20px;
+        }
+        .gallery{
+            margin-top: 30px;
+            padding: 10px 0;
+            border: 1px solid darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>append prepend</h1>
+
+        <button class="app">append1</button>
+        <button class="b_app">append2</button>
+        <div class="gallery">
+            <!-- <img src="img/animal01.png" alt="animal01"> -->
+        </div><!-- gallery -->
+    </div><!-- box -->
+</body>
+</html>

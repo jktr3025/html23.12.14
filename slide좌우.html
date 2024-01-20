@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script/jquery-3.7.1.js"></script>
+    <script lang="java">
+        $(function(){
+            $(".hide").click(function(){
+                $(".gallery").animate({"width":"0"},1000)
+            }) //click hide
+
+            /* 제이커리에서 애니메이트에 넓이를 0을 줘도 
+            이미지는 넘쳐도 보이기 떄문에 
+            갤러리에 오버플로우:히든을 줘야함 */
+
+
+            $(".show").click(function(){
+                $(".gallery").animate({"width":"500px"},1000)
+            }) //click show
+        }) //jquery
+    </script>
+
+    <style type="text/css">
+        body{
+            background: darkkhaki;
+            margin: 30px;
+            padding: 20px;
+        }
+        .gallery{
+            margin: 50px 0;
+            overflow: hidden;
+
+        }
+        .gallery img{
+            width: 400px;
+            border: 5px slateblue solid;
+        }
+        button{
+            padding: 10px 20px;
+            border: none;
+            border-radius: 7px;
+            background: chocolate;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+        button:hover{
+            background: olivedrab;
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1>animate</h1>
+        <div class="gallery">
+            <img src="img/animal10.png" alt="animal10">
+        </div><!-- gallery -->
+        <button class="hide">hide</button>
+        <button class="show">show</button>
+
+    </div><!-- wrap -->
+</body>
+</html>
